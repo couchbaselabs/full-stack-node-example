@@ -1,0 +1,54 @@
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Movie Database Example</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form class="navbar-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search" (keyup.enter)="refresh($event)">
+                        </div>
+                    </form>
+                </li>
+                <li><a style="cursor: pointer" (click)="create()">Add Movie</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Movies</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Genre</th>
+                            <th>Digital Copy</th>
+                            <th>Blu-Ray</th>
+                            <th>DVD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let movie of movies">
+                            <td>{{ movie.name }}</td>
+                            <td>{{ movie.genre }}</td>
+                            <td>{{ movie.formats.digital || false }}</td>
+                            <td>{{ movie.formats.bluray || false }}</td>
+                            <td>{{ movie.formats.dvd || false }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
